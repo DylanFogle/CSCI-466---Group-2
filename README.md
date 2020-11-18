@@ -12,6 +12,7 @@ I'll use an 'O' to mark as incomplete, and an 'X' to mark as finished.
 - {O} - PHP code to implement application
 
 ## -------------Mock Checklist to Track PHP Code Progress-------------
+- {O} - main.php
 - {O} - addToMealDatabase.php
 - {O} - caloriesBurnedPerWeek.php
 - {O} - caloriesConsumedPerWeek.php
