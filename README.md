@@ -25,3 +25,4 @@ I'll use an 'O' to mark as incomplete, and an 'X' to mark as finished.
 - {O} - showWorkoutUsage.php
 - {O} - trackMicronutrient.php
 - {O} - updateWeight.php
+- {O} - userWeightOverTime.php
