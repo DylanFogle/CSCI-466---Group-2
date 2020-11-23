@@ -4,6 +4,7 @@
   define("DB_NAME", "nameofdatabase");
   define("USERNAME", "username");
   define("PASSWORD", "password");
+  define("MEASUREMENT", ["lb","oz","mg","g","kg","c","p","g","ml","l","dl"]);
   try{
     // Depending on who's hosting the db, this information is likely to change.
 		$dsn = "mysql:host=courses;dbname=".DB_NAME;
