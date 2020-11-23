@@ -34,4 +34,5 @@
     echo "<tr><th>".$CBDay0."<th/><th>".$CBDay1."<th/><th>".$CBDay2."<th/>";
     echo "<th>".$CBDay3."<th/><th>".$CBDay4."<th/><th>".$CBDay5."<th/><th>".$CBDay6."<th/><tr/>"; 
   }
+
 ?>
