@@ -9,14 +9,14 @@
 
   echo "Please enter a date in the format YYYY-MM-DD!";
   echo "<form method=POST>";
-    echo "<input type=text name=CBDay>";
+    echo "<input type=text name=CBDate>";
     echo "<input type=submit value='Submit to see calories burned!'>";
   echo "<form/>";
 
-  if(!empty($_POST["CBDay"])){
-    $CBDay = substr($_POST["CBDay"], 8, 2);
-    $CBMonth = substr($_POST["CBDay"], 5, 2);
-    $CBYear = substr($_POST["CBDay"], 0, 4);
+  if(!empty($_POST["CBDate"])){
+    $CBDay = substr($_POST["CBDate"], 8, 2);
+    $CBMonth = substr($_POST["CBDate"], 5, 2);
+    $CBYear = substr($_POST["CBDate"], 0, 4);
     // From here we have the exact date entered.
     // Now we have to calculate the week out.
     $CBWeek = floor((4*$CBMonth)+$CBDay/7);
@@ -34,5 +34,4 @@
     echo "<tr><th>".$CBDay0."<th/><th>".$CBDay1."<th/><th>".$CBDay2."<th/>";
     echo "<th>".$CBDay3."<th/><th>".$CBDay4."<th/><th>".$CBDay5."<th/><th>".$CBDay6."<th/><tr/>"; 
   }
-
 ?>
