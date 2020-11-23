@@ -5,7 +5,7 @@
 
   echo "<br />Entering Meal Data!<br />";
   echo "<form method=POST>";
-		echo "Select food/drink name here<select name=FDName>";
+		echo "Select food/drink name here<select name=dietName>";
 			$mealDataResult = $pdo->query("SELECT FROM Food/Drink;")
 			$mealDataRows = $mealDataResult->fetchAll(PDO::FETCH_ASSOC);
 			foreach($mealDataRows as $row){
@@ -37,7 +37,7 @@
 			$sql = "INSERT INTO Food/Drink(Name,Amount,Date,Calories) VALUES (:dietN,:dietA,:dietD,:dietC);";
 			$prepared = $pdo->prepare($sql);
 			$success = $prepared->execute(array(":dietN" => "$dietName", ":dietA" => "$dietAmount",
-			 ":dietDate" => "$dietDate", ":dietC" => "dietCalories"));
+			 ":dietDate" => "$dietDate", ":dietC" => "$dietCalories"));
 			if(!$success){
 				echo "Error in query";
 				die();
