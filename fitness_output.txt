@@ -1,0 +1,99 @@
+
+MariaDB [z1821488]> \. fitness_script.txt
+Query OK, 0 rows affected (0.215 sec)
+
+Query OK, 0 rows affected (0.175 sec)
+
+Query OK, 0 rows affected (0.176 sec)
+
+Query OK, 0 rows affected (0.201 sec)
+
+Query OK, 0 rows affected (0.208 sec)
+
+Query OK, 0 rows affected (0.176 sec)
+
+Query OK, 0 rows affected (0.167 sec)
+
+Query OK, 0 rows affected (0.192 sec)
+
+MariaDB [z1821488]> \t
+MariaDB [z1821488]> SHOW COLUMNS FROM z1821488.USER;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| USER_ID | int(10)     | NO   | PRI | NULL    | auto_increment |
+| NAME    | varchar(30) | NO   |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+2 rows in set (0.001 sec)
+
+MariaDB [z1821488]> SHOW COLUMNS FROM z1821488.FOOD_DRINK_DATABASE;
++----------------------+-----------------+------+-----+---------+-------+
+| Field                | Type            | Null | Key | Default | Extra |
++----------------------+-----------------+------+-----+---------+-------+
+| NAME                 | varchar(30)     | NO   | PRI | NULL    |       |
+| SERVING_SIZE         | double unsigned | NO   |     | NULL    |       |
+| PROTEIN_PER_SERVING  | double unsigned | NO   |     | NULL    |       |
+| CARBS_PER_SERVING    | double unsigned | NO   |     | NULL    |       |
+| FAT_PER_SERVING      | double unsigned | NO   |     | NULL    |       |
+| CALORIES_PER_SERVING | double unsigned | NO   |     | NULL    |       |
++----------------------+-----------------+------+-----+---------+-------+
+6 rows in set (0.001 sec)
+
+MariaDB [z1821488]> SHOW COLUMNS FROM z1821488.WORKOUT_DATABASE;
++-----------------+-----------------+------+-----+---------+-------+
+| Field           | Type            | Null | Key | Default | Extra |
++-----------------+-----------------+------+-----+---------+-------+
+| NAME            | varchar(30)     | NO   | PRI | NULL    |       |
+| TYPE            | varchar(20)     | NO   |     | NULL    |       |
+| CALORIES_BURNED | double unsigned | NO   |     | NULL    |       |
++-----------------+-----------------+------+-----+---------+-------+
+3 rows in set (0.001 sec)
+
+MariaDB [z1821488]> SHOW COLUMNS FROM z1821488.WORKOUT;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| WORKOUT_ID | int(10)     | NO   | PRI | NULL    | auto_increment |
+| NAME       | varchar(30) | NO   | MUL | NULL    |                |
+| DURATION   | time        | NO   |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+3 rows in set (0.001 sec)
+
+MariaDB [z1821488]> SHOW COLUMNS FROM z1821488.FOOD_AND_DRINK;
++----------+-----------------+------+-----+---------+----------------+
+| Field    | Type            | Null | Key | Default | Extra          |
++----------+-----------------+------+-----+---------+----------------+
+| MEAL_ID  | int(10)         | NO   | PRI | NULL    | auto_increment |
+| NAME     | varchar(30)     | NO   | MUL | NULL    |                |
+| QUANTITY | double unsigned | NO   |     | NULL    |                |
++----------+-----------------+------+-----+---------+----------------+
+3 rows in set (0.001 sec)
+
+MariaDB [z1821488]> SHOW COLUMNS FROM z1821488.WEIGHT;
++--------+------------------------+------+-----+---------+----------------+
+| Field  | Type                   | Null | Key | Default | Extra          |
++--------+------------------------+------+-----+---------+----------------+
+| LOG_ID | int(10)                | NO   | PRI | NULL    | auto_increment |
+| WEIGHT | decimal(10,0) unsigned | NO   |     | NULL    |                |
++--------+------------------------+------+-----+---------+----------------+
+2 rows in set (0.001 sec)
+
+MariaDB [z1821488]> SHOW COLUMNS FROM z1821488.MICRONUTRIENT;
++------------------+------------------------+------+-----+---------+-------+
+| Field            | Type                   | Null | Key | Default | Extra |
++------------------+------------------------+------+-----+---------+-------+
+| MICRO_NAME       | varchar(30)            | NO   | PRI | NULL    |       |
+| REC_DAILY_AMOUNT | decimal(10,0) unsigned | NO   |     | NULL    |       |
++------------------+------------------------+------+-----+---------+-------+
+2 rows in set (0.001 sec)
+
+MariaDB [z1821488]> SHOW COLUMNS FROM z1821488.UNIT_CONVERSION;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| MEASUREMENT_TYPE | varchar(20) | NO   | PRI | NULL    |       |
+| CONVERSION_RATIO | varchar(40) | NO   |     | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+2 rows in set (0.001 sec)
+
+MariaDB [z1821488]> \t
