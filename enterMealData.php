@@ -11,13 +11,13 @@
 			foreach($mealDataRows as $row){
 				echo "<option value=".$row["Name"].">".$row["Name"]."</option>";	
 			}
-		echo "<select/><br />";
+		echo "</select><br />";
 		echo "Input food/drink amount here<input type=text name=dietAmount>";
     echo "<select name=dietMeasurement>";
       foreach(MEASUREMENT as $dietM){
         echo "<option value=".$dietM.">".$dietM."</option>"; 
       }
-    echo "<select/><br />";
+    echo "</select><br />";
     // Either calories will be entered by user or calculated by the database.
 		echo "Input food/drink calories here<input type=text name=dietCalories><br />";
 		echo "Input the date here, formatted as YYYY-MM-DD<input type=text name=dietDate><br />";
