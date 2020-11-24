@@ -11,7 +11,7 @@
   echo "<form method=POST>";
     echo "<input type=text name=CBDate>";
     echo "<input type=submit value='Submit to see calories burned!'>";
-  echo "<form/>";
+  echo "</form>";
 
   if(!empty($_POST["CBDate"])){
     $CBDay = substr($_POST["CBDate"], 8, 2);
@@ -31,7 +31,7 @@
     $CBDay6 = ;
     
     echo "<table border=1>";
-    echo "<tr><th>".$CBDay0."<th/><th>".$CBDay1."<th/><th>".$CBDay2."<th/>";
-    echo "<th>".$CBDay3."<th/><th>".$CBDay4."<th/><th>".$CBDay5."<th/><th>".$CBDay6."<th/><tr/>"; 
+    echo "<tr><th>".$CBDay0."</th><th>".$CBDay1."</th><th>".$CBDay2."</th>";
+    echo "<th>".$CBDay3."</th><th>".$CBDay4."</th><th>".$CBDay5."</th><th>".$CBDay6."</th></tr>"; 
   }
 ?>
