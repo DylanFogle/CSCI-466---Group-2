@@ -16,7 +16,7 @@
   if(!empty($_POST["macroFirstDate"]) && !empty($_POST["macroLastDate"])){
     $macroFirstDate = $_POST["macroFirstDate"];
     $macroLastDate = $_POST["macroLastDate"];
-    $sql = "SELECT Name, Amount FROM Diet WHERE Date >= :MFD AND Date < :MLD;";
+    $sql = "SELECT Name, Amount FROM Meal WHERE Date >= :MFD AND Date < :MLD;";
     $prepared = $pdo->prepare($sql);
     $success = $prepared->execute(array(":MFD" => "$macroFirstDate", ":MLD" => "$macroLastDate"));
 		if(!$success){
