@@ -6,11 +6,11 @@
 
   echo "Macronutrient consumption over time!<br />";
 	echo "<form method=POST>";
-  echo "Please enter the date, in the format YYYY-MM-DD, for the beginning of a time period.";
-  echo "<input type=text name=macroFirstDate><br />";
-  echo "Please enter the date, in the format YYYY-MM-DD, for the end of a time period.";
-  echo "<input type=text name=macroLastDate><br />";
-  echo "input type=submit value='Submit to see macronutrient breakdown!'/>";
+  	echo "Please enter the date, in the format YYYY-MM-DD, for the beginning of a time period.";
+  	echo "<input type=text name=macroFirstDate><br />";
+  	echo "Please enter the date, in the format YYYY-MM-DD, for the end of a time period.";
+  	echo "<input type=text name=macroLastDate><br />";
+  	echo "input type=submit value='Submit to see macronutrient breakdown!'/>";
 	echo "</form>";
 
   if(!empty($_POST["macroFirstDate"]) && !empty($_POST["macroLastDate"])){
