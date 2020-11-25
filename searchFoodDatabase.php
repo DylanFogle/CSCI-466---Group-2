@@ -26,12 +26,15 @@
 			echo "Error in query";
 			die();
 		}
-    $rowsItem = $prepared->(PDO::FETCH_ASSOC);
-    
-    // From here we have the food/drink, and can simply show all the data associated with it.
-    
+		// From here we have the food/drink, and can simply show all the data associated with it.
+    $rowsItem = $prepared->(PDO::FETCH_ASSOC);  
     echo "<table border=1>";
-    echo "<tr><th></th>"
+    echo "<tr><th>Name</th><th>Vitamin A</th><th>Vitamin C</th><th>Calcium</th><th>Iron</th>";
+		echo "<th>Fats</th><th>Carbohydrates</th><th>Protein</th><th>Size</th><th>Calories</th></tr>";
+		echo "<tr><td>".$rowsItem["Name"]."</td><td>".$rowsItem["VitaminA"]."</td><td>".$rowsItem["VitaminC"]."</td>";
+		echo "<td>".$rowsItem["Calcium"]."</td><td>".$rowsItem["Iron"]."</td><td>".$rowsItem["Fats"]."</td>";
+		echo "<td>".$rowsItem["Carbohydrates"]."</td><td>".$rowsItem["Protein"]."</td><td>".$rowsItem["Size"]."</td>";
+		echo "<td>".$rowsItem["Calories"]."</td></tr>";
     echo "</table>";
   }
 ?>
