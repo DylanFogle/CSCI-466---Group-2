@@ -4,7 +4,7 @@
   define("DB_NAME", "nameofdatabase");
   define("USERNAME", "username");
   define("PASSWORD", "password");
-  define("MEASUREMENT", ["lb","oz","mg","g","kg","c","p","g","ml","l","dl"]);
+  define("MEASUREMENT", ["lb","oz","mg","g","kg","c","p","ml","l","dl"]);
   try{
     // Depending on who's hosting the db, this information is likely to change.
 		$dsn = "mysql:host=courses;dbname=".DB_NAME;
@@ -18,7 +18,6 @@
   // Each of these files will be self contained.
   // However some variables may conflict with one another.
   // In that case try to make variable names unique to file.
-  // I'll try to figure out a solution in the meantime.
   include("addToMealDatabase.php");
   include("caloriesBurnedPerWeek.php");
   include("caloriesConsumedPerWeek.php");
@@ -32,6 +31,5 @@
   include("trackMicronutrient.php");
   include("updateWeight.php");
   include("userWeightOverTime.php");
-  
 ?>
 </body></html>
