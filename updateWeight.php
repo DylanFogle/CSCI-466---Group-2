@@ -5,7 +5,7 @@
   echo "<form method=POST>";
     echo "Enter your current weight, in pounds, here<input type=text name=newWeight><br />";
     echo "Enter the date, in in the formation YYYY-MM-DD, here<input type=text name=weightDate><br />";
-    echo "<input type=submit value='Submite to log your weight!'>";
+    echo "<input type=submit value='Submit to log your weight!'>";
   echo "</form>";
 
   if(!empty($_POST["newWeight"]) && !empty($_POST["weightDate"])){
