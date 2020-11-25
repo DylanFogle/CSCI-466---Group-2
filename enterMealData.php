@@ -18,21 +18,52 @@
         echo "<option value=".$dietM.">".$dietM."</option>"; 
       }
     echo "</select><br />";
-    // Either calories will be entered by user or calculated by the database.
-		echo "Input food/drink calories here<input type=text name=dietCalories><br />";
 		echo "Input the date here, formatted as YYYY-MM-DD<input type=text name=dietDate><br />";
 		echo "<input type=submit value='Submit to add meal!'/>";
   echo "</form>";
 
-	if(!empty($_POST["dietName"]) && !empty($_POST["dietAmount"])
-		 && !empty($_POST["dietCalories"]) && !empty($_POST["dietDate"])){
+	if(!empty($_POST["dietName"]) && !empty($_POST["dietAmount"]) && !empty($_POST["dietDate"])){
 			$dietName = $_POST["dietName"];
 			$dietAmount = $_POST["dietAmount"];
 			$dietMeasure = $_POST["dietMeasurement"];
-			$dietCalories = $_POST["dietCalories"];
 			$dietDate = $_POST["dietDate"];
+			$dietCalories = 0;
+			// Convert amount to common measurement, with g for food and mL for drinks.
+			// Thankfully it seems that 1g = 1mL so that will ease some of the burden.
+			if($dietMeasure == "lb"){
+				$dietMeasure = $dietMeasure*454;
+			}
+			if($dietMeasure == "oz"){
+				$dietMeasure = $dietMeasure*28.35;
+			}
+			if($dietMeasure == "mg"){
+				$dietMeasure = $dietMeasure/1000;
+			}
+			if($dietMeasure == "kg"){
+				$dietMeasure = $dietMeasure*1000;
+			}
+			if($dietMeasure == "c"){
+				$dietMeasure = $dietMeasure*237;
+			}
+			if($dietMeasure == "p"){
+				$dietMeasure = $dietMeasure*473;
+			}
+			if($dietMeasure == "l"){
+				$dietMeasure = $dietMeasure*1000;
+			}
+			if($dietMeasure == "dl"){
+				$dietMeasure = $dietMeasure*100;
+			}
 		
-			// Somewhere between getting amount and insertion into database, convert to common measurement.
+			// Finally we need to get the amount of calories consumed from the meal.
+			// This involves finding the food in the DB and dividing its serving size by amount consumed.
+			$resultFD = $pdo->query("SELECT Name,Size,Calories FROM Food/Drink WHERE Name=".$dietName.";");
+			$rowsFD = $resultFD->fetchAll(PDO::FETCH_ASSOC);
+			foreach($rowsFD as $rowFD){
+				if($rowFD["Name"] == $dietName){
+						$dietCalories = ($dietAmount/$rowFD["Size"])*$rowFD["Calories"]; 
+				}
+			}
 		
 			$sql = "INSERT INTO Food/Drink(Name,Amount,Date,Calories) VALUES (:dietN,:dietA,:dietD,:dietC);";
 			$prepared = $pdo->prepare($sql);
