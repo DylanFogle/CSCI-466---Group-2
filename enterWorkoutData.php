@@ -19,28 +19,27 @@
 		echo "<input type=submit value='Submit to add workout!'/>";
   echo "</form>";
 
-	if(!empty($_POST["workoutName"]) && !empty($_POST["workoutType"])
-		 && !empty($_POST["workoutIntensity"]) && !empty($_POST["workoutDuration"])
-     && !empty($_POST["workoutCalories"]) && !empty($_POST["workoutDate"]){
-			$workoutName = $_POST["workoutName"];
-			$workoutType = $_POST["workoutType"];
-			$workoutIntensity = $_POST["workoutIntensity"];
-			$workoutDuration = $_POST["workoutDuration"];
-			$workoutCalories = $_POST["workoutCalories"];
-      $workoutDate = $_POST["workoutDate"];
+	if(!empty($_POST["workoutName"]) && !empty($_POST["workoutType"]) && !empty($_POST["workoutIntensity"]) 
+		&& !empty($_POST["workoutDuration"]) && !empty($_POST["workoutDate"]){
+		$workoutName = $_POST["workoutName"];
+		$workoutType = $_POST["workoutType"];
+		$workoutIntensity = $_POST["workoutIntensity"];
+		$workoutDuration = $_POST["workoutDuration"];
+		$workoutDate = $_POST["workoutDate"];
+		$workoutCalories = 0;
+			
+		// Calculate how many calories were burned given workout and duration.
 		
-			// Somewhere between getting amount and insertion into database, convert to common measurement.
-		
-			$sql0 = "INSERT INTO Workout(Name,Type,Intensity,Duration,Calories,Date) ";
-      $sql1 = "VALUES (:wName,:wType,:wIntensity,:wDuration,:wCalories,:wDate);";
-      $sql = $sql0.$sql;
-			$prepared = $pdo->prepare($sql);
-			$success = $prepared->execute(array(":wName" => "$workoutName", ":wType" => "$workoutType",
-			 ":wIntensity" => "$workoutIntensity", ":wDuration" => "$workoutDuration",
-       ":wCalories" => "$workoutCalories", ":wDate" => "$workoutDate"));
-			if(!$success){
-				echo "Error in query";
-				die();
-			}
+		$sql0 = "INSERT INTO Workout(Name,Type,Intensity,Duration,Calories,Date) ";
+      		$sql1 = "VALUES (:wName,:wType,:wIntensity,:wDuration,:wCalories,:wDate);";
+      		$sql = $sql0.$sql;
+		$prepared = $pdo->prepare($sql);
+		$success = $prepared->execute(array(":wName" => "$workoutName", ":wType" => "$workoutType",
+			":wIntensity" => "$workoutIntensity", ":wDuration" => "$workoutDuration",
+       			":wCalories" => "$workoutCalories", ":wDate" => "$workoutDate"));
+		if(!$success){
+			echo "Error in query";
+			die();
 		}
+	}
 ?>
