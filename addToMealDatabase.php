@@ -15,11 +15,12 @@
 		echo "Input macronutrients of carbohydrates per serving here - <input type=text name=newFDCarbo><br />";
 		echo "Input macronutrients of protein per serving here - <input type=text name=newFDProtein><br />";
 		echo "Input the size of a serving, in grams or mL, here - <input type=text name=newFDSize><br />";
+		echo "Input the amount of calories, in one serving, here - <input type=text name=newFDCal><br />";
 		echo "<input type=submit value='Submit to add food/drink!'/>";
 	echo "</form>";
-  if(!empty($_POST["newFDName"]) && !empty($_POST["newFDVitA"]) && !empty($_POST["newFDVitC"])
-     		&& !empty($_POST["newFDCalcium"]) && !empty($_POST["newFDIron"]) && !empty($_POST["newFDFats"])
-		&& !empty($_POST["newFDCarbo"]) && !empty($_POST["newFDProtein"]) && !empty($_POST["newFDSize"])){
+  if(!empty($_POST["newFDName"]) && !empty($_POST["newFDVitA"]) && !empty($_POST["newFDVitC"]) && !empty($_POST["newFDCalcium"]) 
+     		&& !empty($_POST["newFDIron"]) && !empty($_POST["newFDFats"]) && !empty($_POST["newFDCarbo"]) 
+     		&& !empty($_POST["newFDProtein"]) && !empty($_POST["newFDSize"]) && !empty($_POST["newFDCal"])){
 		$newFDName = $_POST["newFDName"];
 		$newFDVitA = ($_POST["newFDVitA"]/1000);
 	  	$newFDVitC = ($_POST["newFDVitC"]/1000);
@@ -28,9 +29,10 @@
 		$newFDFats = $_POST["newFDFats"];
 		$newFDCarbo = $_POST["newFDCarbo"];
 		$newFDProtein = $_POST["newFDProtein"];
-	  	$newFDSize = $_POST["newFDSize"]
-		$sql = "INSERT INTO Food/Drink (Name,VitaminA,VitaminC,Calcium,Iron,Fats,Carbohydrates,Protein,Size) ";
-		$sql2 = "VALUES (:Name,:VitA,:VitC,:Calc,:Iron,:Fats,:Carbo,:Protein,:Size);";
+	  	$newFDSize = $_POST["newFDSize"];
+	  	$newFDCal = $_POST["newFDCal"];
+		$sql = "INSERT INTO Food/Drink (Name,VitaminA,VitaminC,Calcium,Iron,Fats,Carbohydrates,Protein,Size,Calories) ";
+		$sql2 = "VALUES (:Name,:VitA,:VitC,:Calc,:Iron,:Fats,:Carbo,:Protein,:Size,:Cal);";
 		$sql = $sql.$sql2
 		$prepared = $pdo->prepare($sql);
 	  	// All values entered are in grams.
@@ -38,7 +40,7 @@
 		$success = $prepared->execute(array(":Name" => "$newFDName", ":VitA" => "$newFDVitA",
 			 ":VitC" => "$newFDVitC", ":Calc" => "$newFDCalcium", ":Iron" => "$newFDIron",
 			 ":Fats" => "$newFDFats", ":Carbo" => "$newFDCarbo", ":Protein" => "newFDProtein",
-			 ":Size" => "$newFDSize"));
+			 ":Size" => "$newFDSize", ":Cal" => "$newFDCal"));
 		if(!$success){
 			echo "Error in query";
 			die();
