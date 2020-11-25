@@ -26,12 +26,10 @@
 			echo "Error in query";
 			die();
 		}
+		// From here we have the workout, and can simply show all the data associated with it.
     $rowsWorkout = $prepared->(PDO::FETCH_ASSOC);
-    
-    // From here we have the workout, and can simply show all the data associated with it.
-    
     echo "<table border=1>";
-    echo "<tr><th>Name</th><th>Type</th><th>Intensity</th></tr>";
+    echo "<tr><th>Name</th><th>Type</th><th>Intensity</th><th>Calories</th></tr>";
     echo "<tr><td>".$rowsWorkout["Name"]."</td><td>".$rowsWorkout["Type"]."</td><td>".$rowsWorkout["Intensity"]."</td></tr>";
     echo "</table>";
   }
