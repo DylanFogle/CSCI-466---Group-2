@@ -11,10 +11,8 @@
 			}
 		echo "<select/><br />";
 		echo "Input workout type here<input type=text name=workoutType><br />";
-    echo "Input workout intensity here<input type=text name=workoutIntensity><br />";
-    echo "Input workout duration, in minutes, here<input type=text name=workoutDuration><br />";
-    // Either calories will be entered by user or calculated by the database.
-		echo "Input calories burned here<input type=text name=workoutCalories><br />";
+		echo "Input workout intensity here<input type=text name=workoutIntensity><br />";
+		echo "Input workout duration, in minutes, here<input type=text name=workoutDuration><br />";
 		echo "Input the date here, formatted as YYYY-MM-DD<input type=text name=workoutDate><br />";
 		echo "<input type=submit value='Submit to add workout!'/>";
   echo "</form>";
