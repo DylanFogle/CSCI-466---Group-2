@@ -65,7 +65,7 @@
 				}
 			}
 		
-			$sql = "INSERT INTO Food/Drink(Name,Amount,Date,Calories) VALUES (:dietN,:dietA,:dietD,:dietC);";
+			$sql = "INSERT INTO Meal(Name,Amount,Date,Calories) VALUES (:dietN,:dietA,:dietD,:dietC);";
 			$prepared = $pdo->prepare($sql);
 			$success = $prepared->execute(array(":dietN" => "$dietName", ":dietA" => "$dietAmount",
 			 ":dietDate" => "$dietDate", ":dietC" => "$dietCalories"));
