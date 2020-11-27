@@ -8,7 +8,7 @@
   echo "<br />Tracking the consumption of a micronutrient!<br />";
   echo "<form method=POST>";
     echo "Please enter the name of the micronutrient to be tracked<br />";
-    echo "You can choose between VitaminA,VitaminC,Iron, and Calcium!";
+    echo "You can choose between VITAMIN_A,VITAMIN_C,IRON, and CALCIUM!";
     echo "<input type=text name=microChosen><br / >";
   	echo "Please enter the date, in the format YYYY-MM-DD, for the beginning of a time period.";
   	echo "<input type=text name=microFirstDate><br />";
@@ -21,7 +21,7 @@
     $microFirstDate = $_POST["microFirstDate"];
     $microLastDate = $_POST["microLastDate"];
     $microChosen = $_POST["microChosen"];
-    $sql = "SELECT Name,Amount,Date FROM Meal WHERE Date >= :MFD AND Date < :MFD ORDER BY Date;";
+    $sql = "SELECT NAME,QUANTITY,DATE FROM FOOD_AND_DRINK WHERE DATE >= :MFD AND DATE < :MFD ORDER BY DATE;";
     $prepared = $pdo->prepare($sql);
     $success = $prepared->execute(array(":MFD" => "$microFirstDate", ":MLD" => "$microLastDate"));
 		if(!$success){
@@ -30,7 +30,7 @@
 		}
     // Get all meals between the two dates.
     $rowsMicroDiet = $prepared->fetchAll(PDO::FETCH_ASSOC);
-    $sql1 = "SELECT Name,:Micro,Amount FROM Food/Drink;";
+    $sql1 = "SELECT NAME,:Micro,SERVING_SIZE FROM NUTRITIONINFO;";
     $prepared1 = $pdo->prepare($sql1);
     $success1 = $prepared1->execute(array(":Micro" => "$microChosen"));
 		if(!$success1){
@@ -46,16 +46,16 @@
     // and find how much of that micronutrient was consumed for each date between the date range.
     
     $microAmount = 0;
-    if($microChosen == "VitaminC"){
+    if($microChosen == "VITAMIN_C"){
       $microAmount = 0.09;
     }
-    if($microChosen == "VitaminA"){
+    if($microChosen == "VITAMIN_A"){
       $microAmount = 0.0009;
     }
-    if($microChosen == "Calcium"){
+    if($microChosen == "CALCIUM"){
       $microAmount = 2.5;
     }
-    if($microChosen == "Iron"){
+    if($microChosen == "IRON"){
       $microAmount = 0.0087;
     }
     echo "The daily recommended amount of ".$microChosen." is ".$microAmount." grams.";
@@ -64,11 +64,11 @@
     echo "<tr><th>Date</th><th>".$microChosen."</th></tr>";
     // For each food/drink consumed by the user.
     foreach($rowsMicroDiet as $rowM){
-      echo "<tr><td>".$rowM["Date"]."</td>";
+      echo "<tr><td>".$rowM["DATE"]."</td>";
       // For each food/drink in the DB.
       foreach($rowsFD as $rowFD){
-        if($rowM["Name"] == $rowFD["Name"]){
-          $foodServing =  $rowM["Amount"] / $rowFD["Size"];
+        if($rowM["NAME"] == $rowFD["NAME"]){
+          $foodServing =  $rowM["QUANTITY"] / $rowFD["SERVING_SIZE"];
           $microAmount = $rowFD[$microChosen] * $foodServing;
           echo "<td>".$microAmount."</td>";
         }
