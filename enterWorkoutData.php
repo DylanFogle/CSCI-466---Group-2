@@ -10,7 +10,7 @@
 				echo "<option value=".$row["NAME"].">".$row["NAME"]."</option>";	
 			}
 		echo "<select/><br />";
-		//*echo "Input workout intensity here<input type=text name=workoutIntensity><br />";
+		echo "Input workout intensity here<input type=text name=workoutIntensity><br />";
 		echo "Input workout duration, in minutes, here<input type=text name=workoutDuration><br />";
 		echo "Input the date here, formatted as YYYY-MM-DD<input type=text name=workoutDate><br />";
 		echo "<input type=submit value='Submit to add workout!'/>";
@@ -19,17 +19,16 @@
 	if(!empty($_POST["workoutName"]) && !empty($_POST["workoutIntensity"]) 
 		&& !empty($_POST["workoutDuration"]) && !empty($_POST["workoutDate"]){
 		$workoutName = $_POST["workoutName"];
-		//*$workoutIntensity = $_POST["workoutIntensity"];
+		$workoutIntensity = $_POST["workoutIntensity"];
 		$workoutDuration = $_POST["workoutDuration"];
 		$workoutDate = $_POST["workoutDate"];
 		
-		//$sql0 = "INSERT INTO WORKOUT(NAME,INTENSITY,DURATION,DATE) ";
-		$sql0 = "INSERT INTO WORKOUT(NAME,DURATION,DATE) ";
-      		$sql1 = "VALUES (:wName,:wDuration,:wDate);";
+		$sql0 = "INSERT INTO WORKOUT(NAME,INTENSITY,DURATION,DATE) ";
+      		$sql1 = "VALUES (:wName,:wIntensity,:wDuration,:wDate);";
       		$sql = $sql0.$sql;
 		$prepared = $pdo->prepare($sql);
-		$success = $prepared->execute(array(":wName" => "$workoutName", ":wDuration" => "$workoutDuration",
-       			":wDate" => "$workoutDate"));
+		$success = $prepared->execute(array(":wName" => "$workoutName", ":wIntensity" => "$workoutIntensity",
+			":wDuration" => "$workoutDuration", ":wDate" => "$workoutDate"));
 		if(!$success){
 			echo "Error in query";
 			die();
