@@ -31,7 +31,7 @@
       $i = $i + 1;
     }
     // But we need to redo the query again to get all workouts done in that time.
-    $sql1 = "SELECT NAME,DURATION,DATE FROM WORKOUT WHERE Date >= :CBFD AND DATE <= :CBLD;";
+    $sql1 = "SELECT NAME,DURATION,DATE FROM WORKOUT WHERE DATE >= :CBFD AND DATE <= :CBLD;";
     $prepared1 = $pdo->prepare($sql);
     $success1 = $prepared1->execute(array(":CBFD" => "$CBFirstDate", ":CBLD" => "$CBLastDate"));
 		if(!$success1){
