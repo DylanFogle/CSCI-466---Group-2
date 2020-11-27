@@ -12,7 +12,7 @@
     $newWeight = $_POST["newWeight"];
     $weightDate = $_POST["weightDate"];
     
-    $sql = "INSERT INTO Weight(WeightValue,Date) VALUES (:Weight,:Date);";
+    $sql = "INSERT INTO WEIGHT(NUMERIC_WEIGHT,DATE) VALUES (:Weight,:Date);";
     $prepared = $pdo->prepare($sql);
     $success = $prepared->execute(array(":Weight" => "$newWeight", ":Weight" => "$weightDate"));
     if(!$success){
