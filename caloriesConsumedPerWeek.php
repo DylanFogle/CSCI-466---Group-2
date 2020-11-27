@@ -1,35 +1,82 @@
 <?php
   // A graph will be generated of how many calories a user consumed each day of the week.
 
-  // Same idea as the calories burned in a week. Ask the user to give a date,
-  // calculate the week from that and give values for the whole week.
+  // Have the user enter two days that will define a week.
+  // Then we simply calculate the amount of calories consumed each day.
   echo "<br />Showing how many calories a user consumed in a week!<br />";
 
-  echo "Please enter a date in the format YYYY-MM-DD!";
   echo "<form method=POST>";
-    echo "<input type=text name=CCDate>";
-    echo "<input type=submit value='Submit to see calories consumed!'>";
+    echo "Please enter the first day of the week in the format YYYY-MM-DD!";
+    echo "<input type=text name=CCFirstDate>";
+    echo "Please enter the last day of the week in the format YYYY-MM-DD!";
+    echo "<input type=text name=CCLastDate>";
+    echo "<input type=submit value='Submit to see calories burned!'>";
   echo "</form>";
 
-  if(!empty($_POST["CCDate"])){
-    $CCDay = substr($_POST["CCDate"], 8, 2);
-    $CCMonth = substr($_POST["CCDate"], 5, 2);
-    $CCYear = substr($_POST["CCDate"], 0, 4);
-    // From here we have the exact date entered.
-    // Now we have to calculate the week out.
-    $CCWeek = floor((4*$CCMonth)+$CCDay/7);
-    // From here we can calculate the days of said week.
-    // This will be easier if we restrict our year to only 2020, something to discuss.
-    $CCDay0 = ;
-    $CCDay1 = ;
-    $CCDay2 = ;
-    $CCDay3 = ;
-    $CCDay4 = ;
-    $CCDay5 = ;
-    $CCDay6 = ;
+  if(!empty($_POST["CCFirstDate"]) && !empty($_POST["CCLastDate"])){
+    $CCFirstDate = $_POST["CCFirstDate"];
+    $CCLastDate = $_POST["CCLastDate"];
+    $sql = "SELECT DISTINCT DATE FROM FOOD_AND_DRINK WHERE DATE >= :CBFD AND DATE <= :CBLD;";
+    $prepared = $pdo->prepare($sql);
+    $success = $prepared->execute(array(":CBFD" => "$CBFirstDate", ":CBLD" => "$CBLastDate"));
+		if(!$success){
+			echo "Error in query";
+			die();
+		}
+    $rowsDoW = $prepared->fetchAll(PDO::FETCH_ASSOC);
+    // We now have every distinct day of possible meal eaten by the user
+    $i = 0;
+    foreach($rowsDoW as $row){
+      $CBDay.$i = $row["DATE"];
+      $i = $i + 1;
+    }
+    // But we need to redo the query again to get all meals eaten in that time.
+    $sql1 = "SELECT NAME,CALORIES,DATE FROM FOOD_AND_DRINK WHERE Date >= :CBFD AND DATE <= :CBLD;";
+    $prepared1 = $pdo->prepare($sql);
+    $success1 = $prepared1->execute(array(":CBFD" => "$CBFirstDate", ":CBLD" => "$CBLastDate"));
+		if(!$success1){
+			echo "Error in query";
+			die();
+		}
+    $rowsMoW = $prepared1->fetchAll(PDO::FETCH_ASSOC);
+    // Because we already calculated the calories prior to insertion into FOOD_AND_DRINK,
+    // we can simply tally them up day by day.
+    $CBDay0Amount = 0;
+    $CBDay1Amount = 0;
+    $CBDay2Amount = 0;
+    $CBDay3Amount = 0;
+    $CBDay4Amount = 0;
+    $CBDay5Amount = 0;
+    $CBDay6Amount = 0;
+    // For each meal eaten by the user.
+    foreach($rowsMoW as $rowMOW){
+      // Now check for day.
+      if($CCDay."0" == $rowMOW["DATE"]){
+        $CCDay0Amount += $rowMOW["CALORIES"];
+      }
+      if($CCDay."1" == $rowMOW["DATE"]){
+        $CCDay1Amount += $rowMOW["CALORIES"];
+      }
+      if($CCDay."2" == $rowMOW["DATE"]){
+        $CCDay2Amount += $rowMOW["CALORIES"];
+      }
+      if($CCDay."3" == $rowMOW["DATE"]){
+        $CCDay3Amount += $rowMOW["CALORIES"];
+      }
+      if($CCDay."4" == $rowMOW["DATE"]){
+        $CCDay4Amount += $rowMOW["CALORIES"];
+      }
+      if($CCDay."5" == $rowMOW["DATE"]){
+        $CCDay5Amount += $rowMOW["CALORIES"];
+      }
+      if($CCDay."6" == $rowMOW["DATE"]){
+        $CCDay6Amount += $rowMOW["CALORIES"];
+      }
     
     echo "<table border=1>";
-    echo "<tr><th>".$CCDay0."</th><th>".$CCDay1."</th><th>".$CCDay2."</th>";
-    echo "<th>".$CCDay3."</th><th>".$CCDay4."</th><th>".$CCDay5."</th><th>".$CCDay6."</th></tr>"; 
+    echo "<tr><th>".$CCDay."0"."</th><th>".$CCDay."1"."</th><th>".$CCDay."2"."</th>";
+    echo "<th>".$CCDay."3"."</th><th>".$CCDay."4"."</th><th>".$CCDay"5"."</th><th>".$CCDay."6"."</th></tr>";
+    echo "<tr><td>".$CCDay0Amount."</td><td>".$CCDay1Amount."</td><td>".$CCDay2Amount."</td><td>".$CCDay3Amount."</td>";
+    echo "<tr><td>".$CCDay4Amount."</td><td>".$CCDay5Amount."</td><td>".$CCDay6Amount."</td></tr>";
   }
 ?>
