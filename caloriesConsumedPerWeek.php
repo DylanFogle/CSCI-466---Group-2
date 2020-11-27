@@ -16,9 +16,9 @@
   if(!empty($_POST["CCFirstDate"]) && !empty($_POST["CCLastDate"])){
     $CCFirstDate = $_POST["CCFirstDate"];
     $CCLastDate = $_POST["CCLastDate"];
-    $sql = "SELECT DISTINCT DATE FROM FOOD_AND_DRINK WHERE DATE >= :CBFD AND DATE <= :CBLD;";
+    $sql = "SELECT DISTINCT DATE FROM FOOD_AND_DRINK WHERE DATE >= :CCFD AND DATE <= :CCLD;";
     $prepared = $pdo->prepare($sql);
-    $success = $prepared->execute(array(":CBFD" => "$CBFirstDate", ":CBLD" => "$CBLastDate"));
+    $success = $prepared->execute(array(":CCFD" => "$CCFirstDate", ":CCLD" => "$CCLastDate"));
 		if(!$success){
 			echo "Error in query";
 			die();
@@ -31,9 +31,9 @@
       $i = $i + 1;
     }
     // But we need to redo the query again to get all meals eaten in that time.
-    $sql1 = "SELECT NAME,CALORIES,DATE FROM FOOD_AND_DRINK WHERE Date >= :CBFD AND DATE <= :CBLD;";
+    $sql1 = "SELECT NAME,CALORIES,DATE FROM FOOD_AND_DRINK WHERE DATE >= :CCFD AND DATE <= :CCLD;";
     $prepared1 = $pdo->prepare($sql);
-    $success1 = $prepared1->execute(array(":CBFD" => "$CBFirstDate", ":CBLD" => "$CBLastDate"));
+    $success1 = $prepared1->execute(array(":CCFD" => "$CCFirstDate", ":CCLD" => "$CCLastDate"));
 		if(!$success1){
 			echo "Error in query";
 			die();
