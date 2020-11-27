@@ -1,14 +1,9 @@
 <html><head><title>CSCI 466 - Group 2 - Second Stringers</title></head><body>
 <?php
-  // Set up constants for ease of use.
-  define("DB_NAME", "nameofdatabase");
-  define("USERNAME", "username");
-  define("PASSWORD", "password");
   define("MEASUREMENT", ["lb","oz","mg","g","kg","c","p","ml","l","dl"]);
   try{
-    // Depending on who's hosting the db, this information is likely to change.
-		$dsn = "mysql:host=courses;dbname=".DB_NAME;
-		$pdo = new PDO($dsn,USERNAME,PASSWORD);
+		$dsn = "mysql:host=courses;dbname=z1867886";
+		$pdo = new PDO($dsn,"z1867886","2000Nov10");
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 	}
 	catch(PDOException $e){
