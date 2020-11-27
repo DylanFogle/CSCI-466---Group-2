@@ -30,7 +30,7 @@
 		$newFDProtein = $_POST["newFDProtein"];
 	  	$newFDSize = $_POST["newFDSize"];
 	  	$newFDCal = $_POST["newFDCal"];
-		$sql = "INSERT INTO NUTRITIONINFO (Name,VITAMIN_A,VITAMIN_C,CALCIUM,IRON,FATS,CARBS,PROTEIN,SERVING_SIZE,CALORIES) ";
+		$sql = "INSERT INTO NUTRITIONINFO (Name,VITAMIN_A,VITAMIN_C,CALCIUM,IRON,FAT,CARBS,PROTEIN,SERVING_SIZE,CALORIES) ";
 		$sql2 = "VALUES (:Name,:VitA,:VitC,:Calc,:Iron,:Fats,:Carbo,:Protein,:Size,:Cal);";
 		$sql = $sql.$sql2
 		$prepared = $pdo->prepare($sql);
