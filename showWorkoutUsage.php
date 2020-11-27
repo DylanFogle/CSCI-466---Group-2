@@ -31,20 +31,26 @@
     // We now have all the workouts done by the user in the week, as well as all the workout info.
     // In order to calculate calories burned, we simply do CALORIES_BURNED_PER_MINUTE * DURATION.
     // For each workout done by the user.
+	
+	$workout = array();
+	$totalCal = 0;
     foreach($rowsWoW as $rowWOW){
       // For each workout in the DB.
       foreach($rowsWI as $rowWI){
         // We have the same workout.
         if($rowWOW["NAME"] == $rowWI["NAME"]){
-          
+        	$workout[$rowWOW["NAME"]] += $rowWOW["DURATION"] * $rowWI["CALORIES_BURNED_PER_MINUTE"];
+			$totalCal += $rowWOW["DURATION"] * $rowWI["CALORIES_BURNED_PER_MINUTE"];
         }  
       }
     }
     
+	echo "<br />From $WUFirstDate to $WULastDate you burned $totalCal calories!<br />";
     echo "<table border=1>";
     echo "<tr><th>Workout Name</th><th>Type</th><th>Intensity</th><th>Calories Burned</th></tr>";
     foreach($rowsWI as $rowWI){
-      echo "<tr><td></td></tr>";
+    	echo "<tr><td>".$rowWI["NAME"]."</td><td>".$rowWI["TYPE"]."</td><td>".$rowWI["INTENSITY"]."</td>";
+		echo "<td>".$workout[$rowWI["NAME"]]."</td></tr>";
     }
     echo "</table>";
   }
