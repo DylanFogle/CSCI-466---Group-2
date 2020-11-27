@@ -12,7 +12,7 @@
     echo "<input type=text name=WUFirstDate>";
     echo "Please enter the last day of the time period in the format YYYY-MM-DD!";
     echo "<input type=text name=WULastDate>";
-    echo "<input type=submit value='Submit to see calories burned!'>";
+    echo "<input type=submit value='Submit to see workout usage!'>";
   echo "</form>";
 
   if(!empty($_POST["WUFirstDate"]) && !empty($_POST["WULastDate"])){
