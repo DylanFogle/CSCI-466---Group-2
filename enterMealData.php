@@ -6,10 +6,10 @@
   echo "<br />Entering Meal Data!<br />";
   echo "<form method=POST>";
 		echo "Select food/drink name here<select name=dietName>";
-			$mealDataResult = $pdo->query("SELECT FROM Food/Drink;")
+			$mealDataResult = $pdo->query("SELECT NAME FROM NUTRITIONINFO;")
 			$mealDataRows = $mealDataResult->fetchAll(PDO::FETCH_ASSOC);
 			foreach($mealDataRows as $row){
-				echo "<option value=".$row["Name"].">".$row["Name"]."</option>";	
+				echo "<option value=".$row["NAME"].">".$row["NAME"]."</option>";	
 			}
 		echo "</select><br />";
 		echo "Input food/drink amount here<input type=text name=dietAmount>";
@@ -57,15 +57,15 @@
 		
 			// Finally we need to get the amount of calories consumed from the meal.
 			// This involves finding the food in the DB and dividing its serving size by amount consumed.
-			$resultFD = $pdo->query("SELECT Name,Size,Calories FROM Food/Drink WHERE Name=".$dietName.";");
+			$resultFD = $pdo->query("SELECT NAME,SERVING_SIZE,CALORIES FROM NUTRITIONINFO WHERE NAME=".$dietName.";");
 			$rowsFD = $resultFD->fetchAll(PDO::FETCH_ASSOC);
 			foreach($rowsFD as $rowFD){
-				if($rowFD["Name"] == $dietName){
-						$dietCalories = ($dietAmount/$rowFD["Size"])*$rowFD["Calories"]; 
+				if($rowFD["NAME"] == $dietName){
+						$dietCalories = ($dietAmount/$rowFD["SERVING_SIZE"])*$rowFD["CALORIES"]; 
 				}
 			}
 		
-			$sql = "INSERT INTO Meal(Name,Amount,Date,Calories) VALUES (:dietN,:dietA,:dietD,:dietC);";
+			$sql = "INSERT INTO FOOD_AND_DRINK(NAME,QUANTITY,DATE,CALORIES) VALUES (:dietN,:dietA,:dietD,:dietC);";
 			$prepared = $pdo->prepare($sql);
 			$success = $prepared->execute(array(":dietN" => "$dietName", ":dietA" => "$dietAmount",
 			 ":dietDate" => "$dietDate", ":dietC" => "$dietCalories"));
