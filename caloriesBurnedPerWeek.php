@@ -16,7 +16,7 @@
   if(!empty($_POST["CBFirstDate"]) && !empty($_POST["CBLastDate"])){
     $CBFirstDate = $_POST["CBFirstDate"];
     $CBLastDate = $_POST["CBLastDate"];
-    $sql = "SELECT DISTINCT DATE FROM WORKOUT WHERE Date >= :CBFD AND DATE <= :CBLD;";
+    $sql = "SELECT DISTINCT DATE FROM WORKOUT WHERE DATE >= :CBFD AND DATE <= :CBLD;";
     $prepared = $pdo->prepare($sql);
     $success = $prepared->execute(array(":CBFD" => "$CBFirstDate", ":CBLD" => "$CBLastDate"));
 		if(!$success){
