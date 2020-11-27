@@ -1,7 +1,7 @@
 <?php
   // Show a pie graph of the percentage of the diet made up of each macronutrient during a given time period (day, week, month).
 
-  // For this script the Food/Drink Database will need to be referenced to get the Macronutrient data.
+  // For this script the NutritionInfo Database will need to be referenced to get the Macronutrient data.
   // Ask the user for two dates and show the data between those dates.
 
   echo "Macronutrient consumption over time!<br />";
@@ -16,7 +16,7 @@
   if(!empty($_POST["macroFirstDate"]) && !empty($_POST["macroLastDate"])){
     $macroFirstDate = $_POST["macroFirstDate"];
     $macroLastDate = $_POST["macroLastDate"];
-    $sql = "SELECT Name, Amount FROM Meal WHERE Date >= :MFD AND Date < :MLD;";
+    $sql = "SELECT NAME, QUANTITY FROM FOOD_AND_DRINK WHERE Date >= :MFD AND Date < :MLD;";
     $prepared = $pdo->prepare($sql);
     $success = $prepared->execute(array(":MFD" => "$macroFirstDate", ":MLD" => "$macroLastDate"));
 		if(!$success){
@@ -24,7 +24,7 @@
 			die();
 		}
     $rowsMacroDiet = $prepared->fetchAll(PDO::FETCH_ASSOC);
-    $resultFD = $pdo->query("SELECT Name,Fats,Carbohydrates,Protein,Amount FROM Food/Drink;");
+    $resultFD = $pdo->query("SELECT NAME,FAT,CARBS,PROTEIN,QUANTITY FROM NUTRITIONINFO;");
     $rowsFD = $resultsFD->fetchAll(PDO::FETCH_ASSOC);
     
     // From here, we have the date range specified by the user, and all foods/drinks from the DB.
@@ -40,13 +40,13 @@
     foreach($rowsMacroDiet as $rowM){
       // For each food/drink in the DB.
       foreach($rowsFD as $rowFD){
-        if($rowM["Name"] == $rowFD["Name"]){
+        if($rowM["NAME"] == $rowFD["NAME"]){
           // See how many servings the user ate of that food.
-          $foodServing = $rowM["Amount"] / $rowFD["Size"];
+          $foodServing = $rowM["QUANTITY"] / $rowFD["SERVING_SIZE"];
           // Calculate how many grams of each Macro were eaten.
-          $fatsAmount += $rowFD["Fats"] * $foodServing;
-          $carboAmount += $rowFD["Carbohydrates"] * $foodServing;
-          $proteinAmount += $rowFD["Protein"] * $foodServing;
+          $fatsAmount += $rowFD["FAT"] * $foodServing;
+          $carboAmount += $rowFD["CARBS"] * $foodServing;
+          $proteinAmount += $rowFD["PROTEIN"] * $foodServing;
         }
       }
     }
