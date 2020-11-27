@@ -3,7 +3,7 @@ Feel free to add any files for the project on here.
 I'll be making a separate php file for each 'view' or 'implementation' just to keep things clean and easy to work on.
 I'll use an 'O' to mark as incomplete, and an 'X' to mark as finished.
 
-## -------------Mock Checklist to Track Submission Progress-------------
+## ---Mock Checklist to Track Submission Progress---
 - {O} - ER Diagram
 - {O} - Description of attributes
 - {O} - Relational Schema
@@ -11,18 +11,18 @@ I'll use an 'O' to mark as incomplete, and an 'X' to mark as finished.
 - {O} - SQL script to insert example data
 - {O} - PHP code to implement application
 
-## -------------Mock Checklist to Track PHP Code Progress-------------
+## ---Mock Checklist to Track PHP Code Progress---
 - {O} - main.php
-- {O} - addToMealDatabase.php
-- {O} - caloriesBurnedPerWeek.php
-- {O} - caloriesConsumedPerWeek.php
-- {O} - enterMealData.php
-- {O} - enterWorkoutData.php
-- {O} - macronutrientPercentage.php
-- {O} - searchFoodDatabase.php
-- {O} - searchWorkoutDatabase.php
+- {X} - addToMealDatabase.php
+- {X} - caloriesBurnedPerWeek.php
+- {X} - caloriesConsumedPerWeek.php
+- {X} - enterMealData.php
+- {X} - enterWorkoutData.php
+- {X} - macronutrientPercentage.php
+- {X} - searchFoodDatabase.php
+- {X} - searchWorkoutDatabase.php
 - {O} - showFoodConsumption.php
 - {O} - showWorkoutUsage.php
-- {O} - trackMicronutrient.php
-- {O} - updateWeight.php
-- {O} - userWeightOverTime.php
+- {X} - trackMicronutrient.php
+- {X} - updateWeight.php
+- {X} - userWeightOverTime.php
