@@ -8,7 +8,7 @@
   echo "Search the Workout Database!<br />";
   echo "<form method=POST>";
   echo "Select a workout from the list<select name=pickedWorkout>";
-    $pickedWorkoutResult = $pdo->query("SELECT NAME FROM WORKOUTINFO;")
+    $pickedWorkoutResult = $pdo->query("SELECT NAME FROM WORKOUTINFO;");
 		$pickedWorkoutRows = $pickedWorkoutResult->fetchAll(PDO::FETCH_ASSOC);
 		foreach($pickedWorkoutRows as $row){
 			echo "<option value=".$row["NAME"].">".$row["NAME"]."</option>";	
@@ -27,7 +27,7 @@
 		die();
 	}
 	// From here we have the workout, and can simply show all the data associated with it.
-    $rowsWorkout = $prepared->(PDO::FETCH_ASSOC);
+    $rowsWorkout = $prepared->fetchAll(PDO::FETCH_ASSOC);
     echo "<table border=1>";
     echo "<tr><th>Name</th><th>Type</th><th>Intensity</th><th>Calories burned per minute</th></tr>";
     echo "<tr><td>".$rowsWorkout["NAME"]."</td><td>".$rowsWorkout["TYPE"]."</td><td>".$rowsWorkout["INTENSITY"]."</td>";
