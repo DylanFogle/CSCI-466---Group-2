@@ -36,6 +36,11 @@
     $arrayFat = array();
     $arrayCar = array();
     $arrayPro = array();
+	foreach($rowsNI as $rowNI){
+		$arrayFat[$rowNI["NAME"]] = 0;
+        $arrayCar[$rowNI["NAME"]] = 0;
+        $arrayPro[$rowNI["NAME"]] = 0;
+	}
     foreach($rowsCoW as $rowCOW){
       // For each FD in the DB.
       foreach($rowsNI as $rowNI){
@@ -48,6 +53,7 @@
       }
     }
     
+	echo "<br />From $FCFirstDate to $FCLastDate you consumed these foods/drinks!";
     echo "<table border=1>";
     echo "<tr><th>Food/Drink Name</th><th>Quantity</th><th>Calories</th><th>Fat</th><th>Carbohydrates</th><th>Protein</th></tr>";
     foreach($rowsCoW as $rowCOW){
