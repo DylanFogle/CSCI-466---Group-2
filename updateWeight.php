@@ -1,7 +1,7 @@
 <?php
   // You must implement a page that allows the user to update their weight.
 
-  echo "Update your weight!<br />";
+  echo "<h4>Update your weight!</h4>";
   echo "<form method=POST>";
     echo "Enter your current weight, in pounds, here<input type=text name=newWeight><br />";
     echo "Enter the date, in in the formation YYYY-MM-DD, here<input type=text name=weightDate><br />";
