@@ -30,7 +30,7 @@
     $rowsWorkout = $prepared->fetchAll(PDO::FETCH_ASSOC);
     echo "<table border=1>";
     echo "<tr><th>Name</th><th>Type</th><th>Intensity</th><th>Calories burned per minute</th></tr>";
-    echo "<tr><td>".$rowsWorkout["NAME"]."</td><td>".$rowsWorkout["TYPE"]."</td><td>".$rowsWorkout["INTENSITY"]."</td>";
+    echo "<tr><td>".$rowsWorkout["NAME"]."</td><td>".$rowsWorkout["TYPE"]."</td>";
 	echo "<td>".$rowsWorkout["CALORIES_BURNED_PER_MINUTE"]."</td></tr>";
     echo "</table>";
   }
