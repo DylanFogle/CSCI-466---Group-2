@@ -6,9 +6,9 @@
   echo "<br />Showing how many calories a user burned in a week!<br />";
 
   echo "<form method=POST>";
-    echo "Please enter the first day of the week in the format YYYY-MM-DD!";
+    echo "Please enter the first day of the week in the format YYYY-MM-DD!<br />";
     echo "<input type=text name=CBFirstDate>";
-    echo "Please enter the last day of the week in the format YYYY-MM-DD!";
+    echo "Please enter the last day of the week in the format YYYY-MM-DD!<br />";
     echo "<input type=text name=CBLastDate>";
     echo "<input type=submit value='Submit to see calories burned!'>";
   echo "</form>";
