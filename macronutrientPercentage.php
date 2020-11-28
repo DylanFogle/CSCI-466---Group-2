@@ -4,7 +4,7 @@
   // For this script the NutritionInfo Database will need to be referenced to get the Macronutrient data.
   // Ask the user for two dates and show the data between those dates.
 
-  echo "Macronutrient consumption over time!<br />";
+  echo "<h4>Macronutrient consumption over time!</h4>";
 	echo "<form method=POST>";
   	echo "Please enter the date, in the format YYYY-MM-DD, for the beginning of a time period.";
   	echo "<input type=text name=macroFirstDate><br />";
