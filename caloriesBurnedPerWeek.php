@@ -84,7 +84,7 @@
     
     echo "<table border=1>";
     echo "<tr><th>".$CBDay."0"."</th><th>".$CBDay."1"."</th><th>".$CBDay."2"."</th>";
-    echo "<th>".$CBDay."3"."</th><th>".$CBDay."4"."</th><th>".$CBDay"5"."</th><th>".$CBDay."6"."</th></tr>";
+    echo "<th>".$CBDay."3"."</th><th>".$CBDay."4"."</th><th>".$CBDay."5"."</th><th>".$CBDay."6"."</th></tr>";
     echo "<tr><td>".$CBDay0Amount."</td><td>".$CBDay1Amount."</td><td>".$CBDay2Amount."</td><td>".$CBDay3Amount."</td>";
     echo "<tr><td>".$CBDay4Amount."</td><td>".$CBDay5Amount."</td><td>".$CBDay6Amount."</td></tr>";
   }
