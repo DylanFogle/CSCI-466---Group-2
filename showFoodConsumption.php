@@ -46,9 +46,9 @@
       foreach($rowsNI as $rowNI){
         // We have the same FD.
         if($rowCOW["NAME"] == $rowNI["NAME"]){
-        	$arrayFat[$rowCow["NAME"]] += ($rowCOW["QUANTITY"]/$rowNI["SERVING_SIZE"]) * $rowNI["FAT"];
-          $arrayCar[$rowCow["NAME"]] += ($rowCOW["QUANTITY"]/$rowNI["SERVING_SIZE"]) * $rowNI["CAR"];
-          $arrayPro[$rowCow["NAME"]] += ($rowCOW["QUANTITY"]/$rowNI["SERVING_SIZE"]) * $rowNI["PRO"];
+        	$arrayFat[$rowCOW["NAME"]] += ($rowCOW["QUANTITY"]/$rowNI["SERVING_SIZE"]) * $rowNI["FAT"];
+          	$arrayCar[$rowCOW["NAME"]] += ($rowCOW["QUANTITY"]/$rowNI["SERVING_SIZE"]) * $rowNI["CARBS"];
+          	$arrayPro[$rowCOW["NAME"]] += ($rowCOW["QUANTITY"]/$rowNI["SERVING_SIZE"]) * $rowNI["PROTEIN"];
         }  
       }
     }
