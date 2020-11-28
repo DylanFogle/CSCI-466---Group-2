@@ -14,7 +14,7 @@
     
     $sql = "INSERT INTO WEIGHT(NUMERIC_WEIGHT,DATE) VALUES (:Weight,:Date);";
     $prepared = $pdo->prepare($sql);
-    $success = $prepared->execute(array(":Weight" => "$newWeight", ":Weight" => "$weightDate"));
+    $success = $prepared->execute(array(":Weight" => "$newWeight", ":Date" => "$weightDate"));
     if(!$success){
 			echo "Error in query";
 			die();
