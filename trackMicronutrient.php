@@ -5,7 +5,7 @@
   // Similar to macronutrientPercentage.php. For daily value I can just look up
   // and create a table with the recommended daily amounts.
 
-  echo "<br />Tracking the consumption of a micronutrient!<br />";
+  echo "<h4>Tracking the consumption of a micronutrient!</h4>";
   echo "<form method=POST>";
     echo "Please enter the name of the micronutrient to be tracked<br />";
     echo "You can choose between VITAMIN_A,VITAMIN_C,IRON, and CALCIUM!";
