@@ -5,7 +5,7 @@
   echo "<form method=POST>";
 		echo "Select workout name here<select name=workoutName>";
 			$workoutDataResult = $pdo->query("SELECT NAME FROM WORKOUTINFO;");
-			$worokutDataRows = $workoutDataResult->fetchAll(PDO::FETCH_ASSOC);
+			$workoutDataRows = $workoutDataResult->fetchAll(PDO::FETCH_ASSOC);
 			foreach($workoutDataRows as $row){
 				echo "<option value=".$row["NAME"].">".$row["NAME"]."</option>";	
 			}
