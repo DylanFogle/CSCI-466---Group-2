@@ -7,7 +7,7 @@
 
   // Have the user enter two days that will define a time period.
   // Then we simply show the relevant informationfor each date.
-  echo "<br />Showing a user's food consumption!<br />";
+  echo "<h4>Showing a user's food consumption!</h4>";
 
   echo "<form method=POST>";
     echo "Please enter the first day of the time period in the format YYYY-MM-DD!";
