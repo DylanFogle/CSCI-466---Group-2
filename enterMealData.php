@@ -31,33 +31,33 @@
 			// Convert amount to common measurement, with g for food and mL for drinks.
 			// Thankfully it seems that 1g = 1mL so that will ease some of the burden.
 			if($dietMeasure == "lb"){
-				$dietMeasure = $dietMeasure*454;
+				$dietAmount = $dietAmount*454;
 			}
 			if($dietMeasure == "oz"){
-				$dietMeasure = $dietMeasure*28.35;
+				$dietAmount = $dietAmount*28.35;
 			}
 			if($dietMeasure == "mg"){
-				$dietMeasure = $dietMeasure/1000;
+				$dietAmount = $dietAmount/1000;
 			}
 			if($dietMeasure == "kg"){
-				$dietMeasure = $dietMeasure*1000;
+				$dietAmount = $dietAmount*1000;
 			}
 			if($dietMeasure == "c"){
-				$dietMeasure = $dietMeasure*237;
+				$dietAmount = $dietAmount*237;
 			}
 			if($dietMeasure == "p"){
-				$dietMeasure = $dietMeasure*473;
+				$dietAmount = $dietAmount*473;
 			}
 			if($dietMeasure == "l"){
-				$dietMeasure = $dietMeasure*1000;
+				$dietAmount = $dietAmount*1000;
 			}
 			if($dietMeasure == "dl"){
-				$dietMeasure = $dietMeasure*100;
+				$dietAmount = $dietAmount*100;
 			}
 		
 			// Finally we need to get the amount of calories consumed from the meal.
 			// This involves finding the food in the DB and dividing its serving size by amount consumed.
-			$resultFD = $pdo->query("SELECT NAME,SERVING_SIZE,CALORIES FROM NUTRITIONINFO WHERE NAME=".$dietName.";");
+			$resultFD = $pdo->query("SELECT NAME,SERVING_SIZE,CALORIES FROM NUTRITIONINFO;");
 			$rowsFD = $resultFD->fetchAll(PDO::FETCH_ASSOC);
 			foreach($rowsFD as $rowFD){
 				if($rowFD["NAME"] == $dietName){
@@ -68,7 +68,7 @@
 			$sql = "INSERT INTO FOOD_AND_DRINK(NAME,QUANTITY,DATE,CALORIES) VALUES (:dietN,:dietA,:dietD,:dietC);";
 			$prepared = $pdo->prepare($sql);
 			$success = $prepared->execute(array(":dietN" => "$dietName", ":dietA" => "$dietAmount",
-			 ":dietDate" => "$dietDate", ":dietC" => "$dietCalories"));
+			 ":dietD" => "$dietDate", ":dietC" => "$dietCalories"));
 			if(!$success){
 				echo "Error in query";
 				die();
