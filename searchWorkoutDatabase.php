@@ -28,12 +28,12 @@
 	}
 	// From here we have the workout, and can simply show all the data associated with it.
     $rowWorkout = $prepared->fetchAll(PDO::FETCH_ASSOC);
-	foreach($rowWorkout as $rowWorkout){
     	echo "<table border=1>";
     		echo "<tr><th>Name</th><th>Type</th><th>Intensity</th><th>Calories burned per minute</th></tr>";
+	  	foreach($rowWorkout as $rowWorkout){
     		echo "<tr><td>".$rowsWorkout["NAME"]."</td><td>".$rowsWorkout["TYPE"]."</td>";
 			echo "<td>".$rowsWorkout["CALORIES_BURNED_PER_MINUTE"]."</td></tr>";
-    	echo "</table>";
-	}
+	  	}
+		echo "</table>";
   }
 ?>
