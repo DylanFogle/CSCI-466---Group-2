@@ -9,9 +9,9 @@
 
   echo "<form method=POST>";
     echo "Please enter the first day of the time period in the format YYYY-MM-DD!";
-    echo "<input type=text name=WUFirstDate>";
+    echo "<input type=text name=WUFirstDate><br />";
     echo "Please enter the last day of the time period in the format YYYY-MM-DD!";
-    echo "<input type=text name=WULastDate>";
+    echo "<input type=text name=WULastDate><br />";
     echo "<input type=submit value='Submit to see workout usage!'>";
   echo "</form>";
 
