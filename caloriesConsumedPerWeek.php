@@ -34,32 +34,32 @@
     $CCDay6 = "N/A";
     $i = 0;
     foreach($rowsDoW as $row){
-       if($i = 0){
+       if($i == 0){
                 $CCDay0 = $row["DATE"];
         }
-        if($i = 1){
+        if($i == 1){
                 $CCDay1 = $row["DATE"];
         }
-        if($i = 2){
+        if($i == 2){
                 $CCDay2 = $row["DATE"];
         }
-        if($i = 3){
+        if($i == 3){
                 $CCDay3 = $row["DATE"];
         }
-        if($i = 4){
+        if($i == 4){
                 $CCDay4 = $row["DATE"];
         }
-        if($i = 5){
+        if($i == 5){
                 $CCDay5 = $row["DATE"];
         }
-        if($i = 6){
+        if($i == 6){
                 $CCDay6 = $row["DATE"];
         }
-      $i = $i + 1;
+      $i++;
     }
     // But we need to redo the query again to get all meals eaten in that time.
     $sql1 = "SELECT NAME,CALORIES,DATE FROM FOOD_AND_DRINK WHERE DATE >= :CCFD AND DATE <= :CCLD;";
-    $prepared1 = $pdo->prepare($sql);
+    $prepared1 = $pdo->prepare($sql1);
     $success1 = $prepared1->execute(array(":CCFD" => "$CCFirstDate", ":CCLD" => "$CCLastDate"));
 		if(!$success1){
 			echo "Error in query";
