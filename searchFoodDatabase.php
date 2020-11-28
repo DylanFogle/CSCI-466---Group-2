@@ -8,7 +8,7 @@
   echo "Search the NutritionInfo Database!<br />";
   echo "<form method=POST>";
   echo "Select a food/drink from the list<select name=pickedItem>";
-    $itemDataResult = $pdo->query("SELECT NAME FROM NUTRITIONINFO;")
+    $itemDataResult = $pdo->query("SELECT NAME FROM NUTRITIONINFO;");
 		$itemDataRows = $itemDataResult->fetchAll(PDO::FETCH_ASSOC);
 		foreach($itemDataRows as $row){
 			echo "<option value=".$row["NAME"].">".$row["NAME"]."</option>";	
@@ -27,7 +27,7 @@
 			die();
 		}
 		// From here we have the food/drink, and can simply show all the data associated with it.
-    $rowsItem = $prepared->(PDO::FETCH_ASSOC);  
+    $rowsItem = $prepared->fetchAll(PDO::FETCH_ASSOC);  
     echo "<table border=1>";
     echo "<tr><th>Name</th><th>Vitamin A</th><th>Vitamin C</th><th>Calcium</th><th>Iron</th>";
 		echo "<th>Fats</th><th>Carbohydrates</th><th>Protein</th><th>Size</th><th>Calories</th></tr>";
