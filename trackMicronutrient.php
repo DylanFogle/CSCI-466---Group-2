@@ -14,7 +14,7 @@
   	echo "<input type=text name=microFirstDate><br />";
   	echo "Please enter the date, in the format YYYY-MM-DD, for the end of a time period.";
   	echo "<input type=text name=microLastDate><br />";
-  	echo "input type=submit value='Submit to see micronutrient consumption!'/>";
+  	echo "<input type=submit value='Submit to see micronutrient consumption!'/>";
 	echo "</form>";
 
   if(!empty($_POST["microFirstDate"]) && !empty($_POST["microLastDate"]) && !empty($_POST["microChosen"]){
