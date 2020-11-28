@@ -3,7 +3,7 @@
   
   // Have the user enter two days that will define a week.
   // Then we simply calculate the amount of calories burned each day.
-  echo "<br />Showing how many calories a user burned in a week!<br />";
+  echo "<h4>Showing how many calories a user burned in a week!</h4>";
 
   echo "<form method=POST>";
     echo "Please enter the first day of the week in the format YYYY-MM-DD!";
