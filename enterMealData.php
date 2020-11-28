@@ -3,7 +3,7 @@
   // in what quantities (tracking page). This page must allow the amount consumed to be specified in any
   // relevant type of unit, and the rest of your app should be able to handle those conversions.
 
-  echo "<br />Entering Meal Data!<br />";
+  echo "<h4>Entering Meal Data!</h4>";
   echo "<form method=POST>";
 		echo "Select food/drink name here<select name=dietName>";
 			$mealDataResult = $pdo->query("SELECT NAME FROM NUTRITIONINFO;");
