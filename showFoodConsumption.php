@@ -11,9 +11,9 @@
 
   echo "<form method=POST>";
     echo "Please enter the first day of the time period in the format YYYY-MM-DD!";
-    echo "<input type=text name=FCFirstDate>";
+    echo "<input type=text name=FCFirstDate><br />";
     echo "Please enter the last day of the time period in the format YYYY-MM-DD!";
-    echo "<input type=text name=FCLastDate>";
+    echo "<input type=text name=FCLastDate><br />";
     echo "<input type=submit value='Submit to see Food/Drink consumed!'>";
   echo "</form>";
 
