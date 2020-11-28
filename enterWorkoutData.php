@@ -1,7 +1,7 @@
 <?php
   // You must implement a page that allows the user to enter their workouts.
 
-  echo "<br />Entering Workout Data!<br />";
+  echo "<h4>Entering Workout Data!</h4>";
   echo "<form method=POST>";
 		echo "Select workout name here<select name=workoutName>";
 			$workoutDataResult = $pdo->query("SELECT NAME FROM WORKOUTINFO;");
