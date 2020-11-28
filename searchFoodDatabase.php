@@ -28,15 +28,15 @@
 		}
 		// From here we have the food/drink, and can simply show all the data associated with it.
     $rowItem = $prepared->fetchAll(PDO::FETCH_ASSOC);
-	foreach($rowItem as $rowsItem){
     	echo "<table border=1>";
     	echo "<tr><th>Name</th><th>Vitamin A</th><th>Vitamin C</th><th>Calcium</th><th>Iron</th>";
 			echo "<th>Fats</th><th>Carbohydrates</th><th>Protein</th><th>Size</th><th>Calories</th></tr>";
+	foreach($rowItem as $rowsItem){
 			echo "<tr><td>".$rowsItem["NAME"]."</td><td>".$rowsItem["VITAMIN_A"]."</td><td>".$rowsItem["VITAMIN_C"]."</td>";
 			echo "<td>".$rowsItem["CALCIUM"]."</td><td>".$rowsItem["IRON"]."</td><td>".$rowsItem["FAT"]."</td>";
 			echo "<td>".$rowsItem["CARBS"]."</td><td>".$rowsItem["PROTEIN"]."</td><td>".$rowsItem["SERVING_SIZE"]."</td>";
 			echo "<td>".$rowsItem["CALORIES"]."</td></tr>";
-    	echo "</table>";
 	}
+	echo "</table>";
   }
 ?>
