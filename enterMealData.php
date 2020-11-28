@@ -6,7 +6,7 @@
   echo "<br />Entering Meal Data!<br />";
   echo "<form method=POST>";
 		echo "Select food/drink name here<select name=dietName>";
-			$mealDataResult = $pdo->query("SELECT NAME FROM NUTRITIONINFO;")
+			$mealDataResult = $pdo->query("SELECT NAME FROM NUTRITIONINFO;");
 			$mealDataRows = $mealDataResult->fetchAll(PDO::FETCH_ASSOC);
 			foreach($mealDataRows as $row){
 				echo "<option value=".$row["NAME"].">".$row["NAME"]."</option>";	
