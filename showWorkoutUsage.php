@@ -26,13 +26,16 @@
 			die();
 		}
     $rowsWoW = $prepared->fetchAll(PDO::FETCH_ASSOC);
-    $resultWI = $pdo->query("SELECT NAME, CALORIES_BURNED_PER_MINUTE FROM WORKOUTINFO;");
+    $resultWI = $pdo->query("SELECT NAME,TYPE,CALORIES_BURNED_PER_MINUTE FROM WORKOUTINFO;");
     $rowsWI = $resultWI->fetchAll(PDO::FETCH_ASSOC);
     // We now have all the workouts done by the user in the week, as well as all the workout info.
     // In order to calculate calories burned, we simply do CALORIES_BURNED_PER_MINUTE * DURATION.
     // For each workout done by the user.
 	
 	$workout = array();
+	foreach($rowsWI as $rowWI){
+		$workout[$rowWI["NAME"]] = 0;
+	}
 	$totalCal = 0;
     foreach($rowsWoW as $rowWOW){
       // For each workout in the DB.
@@ -49,7 +52,7 @@
     echo "<table border=1>";
     echo "<tr><th>Workout Name</th><th>Type</th><th>Intensity</th><th>Calories Burned</th></tr>";
     foreach($rowsWI as $rowWI){
-    	echo "<tr><td>".$rowWI["NAME"]."</td><td>".$rowWI["TYPE"]."</td><td>".$rowWI["INTENSITY"]."</td>";
+    	echo "<tr><td>".$rowWI["NAME"]."</td><td>".$rowWI["TYPE"]."</td>";
 		echo "<td>".$workout[$rowWI["NAME"]]."</td></tr>";
     }
     echo "</table>";
