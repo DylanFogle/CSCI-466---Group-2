@@ -5,7 +5,7 @@
   // Essentially the same as the searchFoodDatabase.php script. Show the user the available workouts,
   // and when one is chosen, show the information on it.
 
-  echo "<h4>Search the Workout Database!</h4>";
+  echo "<h4>Search the WorkoutInfo Database!</h4>";
   echo "<form method=POST>";
   echo "Select a workout from the list<select name=pickedWorkout>";
     $pickedWorkoutResult = $pdo->query("SELECT NAME FROM WORKOUTINFO;");
