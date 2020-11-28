@@ -4,7 +4,7 @@
   echo "<br />Entering Workout Data!<br />";
   echo "<form method=POST>";
 		echo "Select workout name here<select name=workoutName>";
-			$workoutDataResult = $pdo->query("SELECT NAME FROM WORKOUTINFO;")
+			$workoutDataResult = $pdo->query("SELECT NAME FROM WORKOUTINFO;");
 			$worokutDataRows = $workoutDataResult->fetchAll(PDO::FETCH_ASSOC);
 			foreach($workoutDataRows as $row){
 				echo "<option value=".$row["NAME"].">".$row["NAME"]."</option>";	
@@ -17,7 +17,7 @@
   echo "</form>";
 
 	if(!empty($_POST["workoutName"]) && !empty($_POST["workoutIntensity"]) 
-		&& !empty($_POST["workoutDuration"]) && !empty($_POST["workoutDate"]){
+		&& !empty($_POST["workoutDuration"]) && !empty($_POST["workoutDate"])){
 		$workoutName = $_POST["workoutName"];
 		$workoutIntensity = $_POST["workoutIntensity"];
 		$workoutDuration = $_POST["workoutDuration"];
