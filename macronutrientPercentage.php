@@ -24,8 +24,8 @@
 			die();
 		}
     $rowsMacroDiet = $prepared->fetchAll(PDO::FETCH_ASSOC);
-    $resultFD = $pdo->query("SELECT NAME,FAT,CARBS,PROTEIN,QUANTITY FROM NUTRITIONINFO;");
-    $rowsFD = $resultsFD->fetchAll(PDO::FETCH_ASSOC);
+    $resultFD = $pdo->query("SELECT NAME,FAT,CARBS,PROTEIN FROM NUTRITIONINFO;");
+    $rowsFD = $resultFD->fetchAll(PDO::FETCH_ASSOC);
     
     // From here, we have the date range specified by the user, and all foods/drinks from the DB.
     // What we will now do is, for every food in the user's diet, calculate how many servings were consumed
@@ -53,6 +53,9 @@
     
     // Add up the amounts to get percentages.
     $macroTotal = $fatsAmount + $carboAmount + $proteinAmount;
+	if($macroTotal == 0){
+		$macroTotal = 1;
+	}
     $fatsP = $fatsAmount / $macroTotal;
     $carboP = $carboAmount / $macroTotal;
     $proteinP = $proteinAmount / $macroTotal;
@@ -60,7 +63,7 @@
     echo "<table border=1>";
       echo "<tr>$macroFirstDate to $macroLastDate</tr>";
       echo "<tr><th>Fats</th><th>Carbohydrates</th><th>Protein</th></tr>";
-      echo "<tr><td>round($fatsP,2)."%"</td><td>round($carboP,2)."%"</td><td>round($proteinP,2)."%"</td></tr>";
+      echo "<tr><td>$fatsP"."%"."</td><td>$carboP"."%"."</td><td>$proteinP"."%"."</td></tr>";
     echo "</table><br />";
   }
 ?>
