@@ -1,0 +1,89 @@
+MariaDB [z1821488]> INSERT INTO USER VALUES (1, 'JOHN');
+Query OK, 1 row affected (0.079 sec)
+
+
+MariaDB [z1821488]> INSERT INTO NUTRITIONINFO VALUES ('CHICKEN', 8, 20, 10, 4, 90, 15, 5, 3, 2);
+Query OK, 1 row affected (0.067 sec)
+
+MariaDB [z1821488]> INSERT INTO NUTRITIONINFO VALUES ('STEAK', 8, 25, 14, 10, 120, 18, 14, 7, 6);
+Query OK, 1 row affected (0.086 sec)
+
+MariaDB [z1821488]> INSERT INTO NUTRITIONINFO VALUES ('PASTA', 12, 10, 40, 8, 150, 5, 11, 2, 8);
+Query OK, 1 row affected (0.067 sec)
+
+MariaDB [z1821488]> INSERT INTO NUTRITIONINFO VALUES ('BLUEBERRIES', 1, 0, 20, 0, 80, 2, 10, 12, 18);
+Query OK, 1 row affected (0.073 sec)
+
+MariaDB [z1821488]> INSERT INTO NUTRITIONINFO VALUES ('WATER', 1, 0, 0, 0, 0, 0, 0, 0, 0);
+Query OK, 1 row affected (0.078 sec)
+
+MariaDB [z1821488]> INSERT INTO NUTRITIONINFO VALUES ('SALMON', 8, 30, 5, 20, 100, 15, 3, 10, 12);
+Query OK, 1 row affected (0.065 sec)
+
+MariaDB [z1821488]> INSERT INTO NUTRITIONINFO VALUES ('ORANGE JUICE', 1, 5, 15, 0, 110, 3, 5, 6, 20);
+Query OK, 1 row affected (0.084 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUTINFO VALUES ('SQUATS', 'LEG', 5);
+Query OK, 1 row affected (0.079 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUTINFO VALUES ('PLANKS', 'AB', 2);
+Query OK, 1 row affected (0.036 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUTINFO VALUES ('LUNGES', 'LEG', 4);
+Query OK, 1 row affected (0.077 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUTINFO VALUES ('DEADLIFT', 'BACK', 8);
+Query OK, 1 row affected (0.083 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUTINFO VALUES ('BICEP CURLS', 'ARM', 2);
+Query OK, 1 row affected (0.081 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUTINFO VALUES ('SIT UPS', 'AB', 1);
+Query OK, 1 row affected (0.092 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUTINFO VALUES ('SHOULDER PRESS', 'SHOULDER', 3);
+Query OK, 1 row affected (0.094 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUTINFO VALUES ('SKULL CRUSHERS', 'ARM', 1);
+Query OK, 1 row affected (0.117 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUTINFO VALUES ('BENCH PRESS', 'CHEST', 4);
+Query OK, 1 row affected (0.083 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUT VALUES (1, 'LUNGES', 20, 'HARD', '2020-10-01', 1);
+Query OK, 1 row affected (0.080 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUT VALUES (2, 'SQUATS', 10, 'HARD', '2020-10-01', 1);
+Query OK, 1 row affected (0.107 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUT VALUES (3, 'PLANKS', 15, 'MEDIUM', '2020-10-01', 1);
+Query OK, 1 row affected (0.083 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUT VALUES (4, 'SIT UPS', 5, 'EASY', '2020-10-01', 1);
+Query OK, 1 row affected (0.082 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUT VALUES (5, 'BICEP CURLS', 10, 'MEDIUM', '2020-10-02', 1);
+Query OK, 1 row affected (0.093 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUT VALUES (6, 'SKULL CRUSHERS', 30, 'HARD', '2020-10-02', 1);
+Query OK, 1 row affected (0.083 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUT VALUES (7, 'BICEP CURLS', 5, 'HARD', '2020-10-02', 1);
+Query OK, 1 row affected (0.084 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUT VALUES (8, 'DEADLIFT', 15, 'HARD', '2020-10-02', 1);
+Query OK, 1 row affected (0.089 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUT VALUES (9, 'SHOULDER PRESS', 15, 'HARD', '2020-10-03', 1);
+Query OK, 1 row affected (0.092 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUT VALUES (10, 'BENCH PRESS', 25, 'HARD', '2020-10-03', 1);
+Query OK, 1 row affected (0.084 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUT VALUES (11, 'PLANKS', 15, 'EASY', '2020-10-03', 1);
+Query OK, 1 row affected (0.083 sec)
+
+MariaDB [z1821488]> INSERT INTO WORKOUT VALUES (12, 'BENCH PRESS', 10, 'EASY', '2020-10-03', 1);
+Query OK, 1 row affected (0.091 sec)
+
+MariaDB [z1821488]> \t
