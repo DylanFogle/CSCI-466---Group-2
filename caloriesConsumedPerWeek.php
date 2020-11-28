@@ -7,9 +7,9 @@
 
   echo "<form method=POST>";
     echo "Please enter the first day of the week in the format YYYY-MM-DD!";
-    echo "<input type=text name=CCFirstDate>";
+    echo "<input type=text name=CCFirstDate><br />";
     echo "Please enter the last day of the week in the format YYYY-MM-DD!";
-    echo "<input type=text name=CCLastDate>";
+    echo "<input type=text name=CCLastDate><br />";
     echo "<input type=submit value='Submit to see calories burned!'>";
   echo "</form>";
 
@@ -72,10 +72,10 @@
       if($CCDay."6" == $rowMOW["DATE"]){
         $CCDay6Amount += $rowMOW["CALORIES"];
       }
-    
+    }
     echo "<table border=1>";
     echo "<tr><th>".$CCDay."0"."</th><th>".$CCDay."1"."</th><th>".$CCDay."2"."</th>";
-    echo "<th>".$CCDay."3"."</th><th>".$CCDay."4"."</th><th>".$CCDay"5"."</th><th>".$CCDay."6"."</th></tr>";
+    echo "<th>".$CCDay."3"."</th><th>".$CCDay."4"."</th><th>".$CCDay."5"."</th><th>".$CCDay."6"."</th></tr>";
     echo "<tr><td>".$CCDay0Amount."</td><td>".$CCDay1Amount."</td><td>".$CCDay2Amount."</td><td>".$CCDay3Amount."</td>";
     echo "<tr><td>".$CCDay4Amount."</td><td>".$CCDay5Amount."</td><td>".$CCDay6Amount."</td></tr>";
   }
