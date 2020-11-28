@@ -5,7 +5,7 @@
   // Allow the user to select a food/drink from the database using a drop down menu.
   // From here just display the information about the chosen item.
 
-  echo "Search the NutritionInfo Database!<br />";
+  echo "<h4>Search the NutritionInfo Database!</h4>";
   echo "<form method=POST>";
   echo "Select a food/drink from the list<select name=pickedItem>";
     $itemDataResult = $pdo->query("SELECT NAME FROM NUTRITIONINFO;");
