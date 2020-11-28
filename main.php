@@ -1,6 +1,6 @@
 <html><head><title>CSCI 466 - Group 2 - Second Stringers</title></head><body>
-	<h1>CSCI 466 Group Project - Group 2 - Second Strings</h1>
-	<h2>Note: All units will be shown as grams, unless otherwise specified</h2>
+	<h1>CSCI 466 Group Project - Group 2 - Second Stringers</h1>
+	<h4>Note: All units will be shown as grams, unless otherwise specified</h4>
 <?php
   define("MEASUREMENT", ["lb","oz","mg","g","kg","c","p","ml","l","dl"]);
   try{
