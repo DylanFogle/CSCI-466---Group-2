@@ -7,12 +7,12 @@ I'll use an 'O' to mark as incomplete, and an 'X' to mark as finished.
 - {O} - ER Diagram
 - {O} - Description of attributes
 - {O} - Relational Schema
-- {O} - SQL script to create tables
+- {X} - SQL script to create tables
 - {O} - SQL script to insert example data
-- {O} - PHP code to implement application
+- {X} - PHP code to implement application
 
 ## ---Mock Checklist to Track PHP Code Progress---
-- {O} - main.php
+- {X} - main.php
 - {X} - addToMealDatabase.php
 - {X} - caloriesBurnedPerWeek.php
 - {X} - caloriesConsumedPerWeek.php
@@ -21,8 +21,8 @@ I'll use an 'O' to mark as incomplete, and an 'X' to mark as finished.
 - {X} - macronutrientPercentage.php
 - {X} - searchFoodDatabase.php
 - {X} - searchWorkoutDatabase.php
-- {O} - showFoodConsumption.php
-- {O} - showWorkoutUsage.php
+- {X} - showFoodConsumption.php
+- {X} - showWorkoutUsage.php
 - {X} - trackMicronutrient.php
 - {X} - updateWeight.php
 - {X} - userWeightOverTime.php
