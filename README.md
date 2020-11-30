@@ -8,7 +8,7 @@ I'll use an 'O' to mark as incomplete, and an 'X' to mark as finished.
 - {O} - Description of attributes
 - {O} - Relational Schema
 - {X} - SQL script to create tables
-- {O} - SQL script to insert example data
+- {X} - SQL script to insert example data
 - {X} - PHP code to implement application
 
 ## ---Mock Checklist to Track PHP Code Progress---
